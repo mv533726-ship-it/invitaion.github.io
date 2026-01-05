@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRIO Cute Invitation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+body, html {
+  margin:0; padding:0; height:100%; width:100%;
+  display:flex; justify-content:center; align-items:center;
+  background: linear-gradient(135deg, #ffe6f0, #ffd1e6);
+  font-family:'Comic Neue', cursive;
+  overflow:hidden;
+}
+
+#container {text-align:center; position:relative;}
+
+#inputDiv {
+  animation:fadeIn 1s ease forwards;
+}
+
+#nameInput {
+  padding:10px 15px; font-size:18px;
+  border-radius:10px; border:2px solid #ff99cc;
+}
+
+#openBtn {
+  padding:10px 20px; margin-left:10px;
+  font-size:16px; border-radius:10px;
+  background:#ff66b3; color:white; border:none;
+  cursor:pointer; transition:0.3s;
+}
+
+#openBtn:hover { background:#ff3385; }
+
+#invitation {
+  display:none; margin-top:30px;
+  animation:fadeIn 1s ease forwards;
+}
+
+#letter {
+  background:#fff0f5; padding:30px; border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  position:relative; cursor:pointer; transition:transform 0.3s;
+}
+
+#letter:hover { transform:scale(1.03); }
+
+#letter h2 { color:#ff3399; font-size:2rem; }
+#letter p { font-size:1.2rem; color:#333; margin-top:15px; line-height:1.5; }
+
+/* Chibis */
+.chibi {
+  font-size:50px; position:absolute;
+  animation:bounce 3s infinite;
+}
+
+.chibi1 { top:5%; left:5%; animation-delay:0s; }
+.chibi2 { bottom:10%; right:10%; animation-delay:1s; }
+.chibi3 { top:50%; left:80%; animation-delay:2s; }
+.chibi4 { bottom:20%; left:40%; animation-delay:0.5s; }
+.chibi5 { top:30%; right:30%; animation-delay:1.5s; }
+
+@keyframes bounce {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+}
+
+@keyframes fadeIn {
+  from{opacity:0;} to{opacity:1;}
+}
+</style>
+</head>
+<body>
+<div id="container">
+  <div id="inputDiv">
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button id="openBtn">Open Invitation 💌</button>
+  </div>
+
+  <div id="invitation">
+    <div id="letter">
+      <!-- Cute chibis -->
+      <div class="chibi chibi1">😺</div>
+      <div class="chibi chibi2">🐰</div>
+      <div class="chibi chibi3">🐼</div>
+      <div class="chibi chibi4">🐤</div>
+      <div class="chibi chibi5">🦊</div>
+
+      <h2>Hello <span id="userName"></span>! 💖</h2>
+      <p>You're officially invited to the <strong>TRIO Music Tech Experience</strong>!<br>
+      Join us for music, fun, and lots of cute surprises! 🎶✨</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const openBtn = document.getElementById('openBtn');
+const nameInput = document.getElementById('nameInput');
+const invitation = document.getElementById('invitation');
+const userName = document.getElementById('userName');
+
+openBtn.addEventListener('click',()=>{
+  const name = nameInput.value.trim();
+  if(name){
+    userName.textContent = name;
+    invitation.style.display = 'block';
+    document.getElementById('inputDiv').style.display = 'none';
+  }else{
+    alert('Please enter your name!');
+  }
+});
+</script>
+</body>
+</html>
